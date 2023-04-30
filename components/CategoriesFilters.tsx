@@ -53,6 +53,14 @@ const CategoriesFilters = ({ dispatch, value }: Props) => {
       >
         People
       </MenuButton>
+      <MenuButton
+        isActive={categories.includes("AI_ART")}
+        onClick={() => {
+          handleCategory("AI_ART" as keyof Categories);
+        }}
+      >
+        AI Art
+      </MenuButton>
     </MenuButtonsContainer>
   );
 };

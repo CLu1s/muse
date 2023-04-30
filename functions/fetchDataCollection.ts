@@ -30,9 +30,11 @@ const fetchDataCollection = async ({
   }page=${page}&purity=${convertPurity(purity)}&categories=${convertCategories(
     categories
   )}&${addRatios(ratios)}`;
+
   const urls = {
     1: `search?sorting=toplist&${params}`,
     2: `search?sorting=hot&${params}`,
+    3: `search?sorting=date_added&order=desc&${params}`,
   };
   const url = urls[collection as keyof typeof urls]
     ? urls[collection as keyof typeof urls]

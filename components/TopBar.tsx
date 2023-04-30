@@ -37,7 +37,6 @@ const TopBar = ({ ratios, dispatch, state }: Props) => {
       apiKey,
       userName,
     } = state;
-    console.log("userName", userName);
     let data;
     if (searchValue) {
       data = await fetchDataSearch({
@@ -90,7 +89,7 @@ const TopBar = ({ ratios, dispatch, state }: Props) => {
       padding={4}
       spacing={10}
     >
-      <Box width="90%" display="flex" justifyContent="center">
+      <HStack width="90%" display="flex" justifyContent="center">
         <HStack justifyContent="center">
           <MenuButton
             align="center"
@@ -117,7 +116,7 @@ const TopBar = ({ ratios, dispatch, state }: Props) => {
             </MenuButton>
           )}
         </HStack>
-      </Box>
+      </HStack>
 
       <Box width="6rem" paddingX="2">
         <Account dispatch={dispatch} />

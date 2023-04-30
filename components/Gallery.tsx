@@ -86,11 +86,7 @@ const Gallery = ({ state, dispatch, getCollection, setWallpaper }: Props) => {
           </Center>
         }
       >
-        <SimpleGrid
-          w="full"
-          columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-          spacing={4}
-        >
+        <SimpleGrid w="full" columns={{ sm: 1, md: 2, lg: 3 }} spacing={4}>
           {images.length > 0 && renderImages}
         </SimpleGrid>
         {images.length === 0 && !metadata.total && (

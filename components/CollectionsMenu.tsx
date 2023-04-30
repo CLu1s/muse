@@ -12,6 +12,10 @@ type Props = {
 
 const globalCollections = [
   {
+    id: 3,
+    name: "Latest",
+  },
+  {
     id: 1,
     name: "Top",
   },

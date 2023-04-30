@@ -26,6 +26,7 @@ export interface Settings {
   per_page: string;
   purity: string[];
   categories: string[];
+  ai_art_filter: number;
   resolutions: string[];
   aspect_ratios: string[];
   toplist_range: string;

@@ -76,6 +76,7 @@ export default function Home() {
   const getSettings = async () => {
     try {
       const data = await fetchSettings(key);
+      if (!data) return;
       dispatch({
         type: "SET_SETTINGS",
         payload: data.data,
@@ -86,7 +87,7 @@ export default function Home() {
   };
   useEffect(() => {
     getSettings();
-  }, []);
+  }, [key]);
 
   const getCollection = throttle({ interval: 500 }, _getCollection);
 

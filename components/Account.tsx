@@ -55,12 +55,12 @@ function Account({ dispatch }: Props) {
   return (
     <>
       <Button mt={4} onClick={onOpen} width="full" colorScheme="ghost">
-        <Avatar bg="teal.500" />
+        <Avatar bg="teal.700" />
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Account</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4} align="stretch">

@@ -137,11 +137,15 @@ export const reducer = (state: State, action: any) => {
       };
     case "SET_SETTINGS":
       const settings = action.payload as State["settings"];
+      const { ai_art_filter } = settings!;
+      const includeAI = ai_art_filter === 0 ? "AI_ART" : "";
       return {
         ...state,
         settings,
         purity: settings?.purity ?? ["sfw"],
-        categories: settings?.categories ?? ["general"],
+        categories: settings
+          ? [...settings.categories, includeAI]
+          : ["general"],
       };
     case "SET_RATIOS":
       state.intervalID && clearInterval(state.intervalID);
