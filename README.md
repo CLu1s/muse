@@ -1,38 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Welcome
 
-## Getting Started
+**Muse** is a [wallheaven](https://wallhaven.cc/) client for viewing images and collections and setting your desktop background.
+## Features
+- List your collections.
+- Set your wallpaper.
+- Filters Wallheaven's style.
+- Slide show: change your wallpaper every specific time.
+- See wallpapers in portrait.
 
-First, run the development server:
+## Screenshots
+![Screenshot from 2023-04-30 08-09-11](https://user-images.githubusercontent.com/5587538/235359202-67c74813-e584-429f-96f6-eca27c4b1ff7.png)
+![Screenshot from 2023-04-30 08-10-09](https://user-images.githubusercontent.com/5587538/235359208-fbebb6bd-4866-44c9-8f56-3ffcd411d3db.png)
+![Screenshot from 2023-04-30 08-10-35](https://user-images.githubusercontent.com/5587538/235359213-386d4e3c-9cf4-4458-a181-5d31f396576b.png)
+![Screenshot from 2023-04-30 08-29-31](https://user-images.githubusercontent.com/5587538/235359215-26419a63-63d4-4beb-83c7-0591e9ed3104.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## How to install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit our lastest [realease](https://github.com/CLu1s/muse/releases) and download the package for your OS.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### AppImage
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+AppImage is a distribution format that does not rely on the system installed packages and instead bundles all dependencies and files needed by the application and can be executed without installation. You just needs to make the file executable (`chmod a+x muse-tauri-app_0.1.1_amd64`) and can then run it (`./muse-tauri-app_0.1.1_amd64`).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## F.A.Q
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Why do you need my API Key?
+It is the default method to authenticate your account with Wallheaven, and there is no need to type your password, and the key can be regenerated at any time.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Why do you need my user name?
+According to the API documentation of Wallhaven to list the images from your collection, we use: /api/<userName>/<collectionID>. We can get the collection ID just with your API key but not your username :( 
