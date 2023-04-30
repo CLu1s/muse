@@ -58,7 +58,7 @@
     },
     "windows": [
       {
-        "fullscreen": true,
+        "fullscreen": false,
         "height": 1000,
         "resizable": true,
         "title": "Muse - wallhaven client",
