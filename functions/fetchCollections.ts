@@ -9,7 +9,7 @@ const fetchCollections = async (apiKey: string) => {
       {
         method: "GET",
         timeout: 30,
-      }
+      },
     );
     const { data } = response as any;
     const payload = data.data as unknown as any;

@@ -5,7 +5,7 @@ import PurityFilters from "./PurityFilters";
 import CategoriesFilters from "./CategoriesFilters";
 import Options from "./Slides";
 import Search from "./Search";
-import { State } from "../types";
+import { State } from "@/types";
 
 interface Props {
   state: State;
@@ -16,6 +16,7 @@ const Sidebar = ({ getCollection, dispatch, state }: Props) => {
   return (
     <VStack spacing={1} position="sticky" top={0} paddingTop="2">
       <Search onSearch={getCollection} dispatch={dispatch} />
+
       <CollectionsMenu
         state={state}
         getCollection={getCollection}

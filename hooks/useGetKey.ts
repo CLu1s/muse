@@ -1,9 +1,7 @@
-const useGetKey = () => {
-  const client = typeof window !== "undefined";
-  const savedKey = client ? localStorage.getItem("apiKey") : null;
-  const userName = client ? localStorage.getItem("userName") : undefined;
+import { getCredentials } from "@/functions";
 
-  return { savedKey, userName };
+const useGetKey = () => {
+  return getCredentials();
 };
 
 export default useGetKey;

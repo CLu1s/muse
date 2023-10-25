@@ -1,9 +1,8 @@
-import addRatios from "./addRatios";
-import convertCategories from "./convertCategories";
-import convertPurity from "./convertPurity";
-import { fetch } from "@tauri-apps/api/http";
-
-interface FetchDataCollection {
+import addRatios from "../functions/addRatios";
+import convertCategories from "../functions/convertCategories";
+import convertPurity from "../functions/convertPurity";
+import useSWR from "./useSWR";
+interface UsefetchDataCollection {
   collection: number;
   page: number;
   purity: string[];
@@ -13,7 +12,7 @@ interface FetchDataCollection {
   userName?: string;
 }
 
-const fetchDataCollection = async ({
+const useFetchDataCollection = async ({
   collection,
   page,
   purity,
@@ -21,14 +20,14 @@ const fetchDataCollection = async ({
   ratios,
   apiKey,
   userName,
-}: FetchDataCollection) => {
+}: UsefetchDataCollection) => {
   let key = apiKey;
   const baseUrl = "https://wallhaven.cc/api/v1";
   const apikey = `apikey=${key}&`;
   const params = `${
     key !== null ? apikey : ""
   }page=${page}&purity=${convertPurity(purity)}&categories=${convertCategories(
-    categories
+    categories,
   )}&${addRatios(ratios)}`;
 
   const urls = {
@@ -39,13 +38,10 @@ const fetchDataCollection = async ({
   const url = urls[collection as keyof typeof urls]
     ? urls[collection as keyof typeof urls]
     : `collections/${userName}/${collection}?${params}`;
-  const response = await fetch(`${baseUrl}/${url}`, {
-    method: "GET",
-    timeout: 30,
-  });
+  const response = useSWR(`${baseUrl}/${url}`);
 
   const { data } = response;
   return data;
 };
 
-export default fetchDataCollection;
+export default useFetchDataCollection;

@@ -17,7 +17,7 @@ const MenuButtonsContainer = forwardRef(
         {children}
       </VStack>
     );
-  }
+  },
 );
 
 MenuButtonsContainer.displayName = "MenuButtonsContainer";

@@ -20,18 +20,6 @@ export default function Home() {
   const { purity, categories, ratios } = state as State;
   const { savedKey: key, userName } = useGetKey();
 
-  useEffect(() => {
-    if (!key) return;
-    dispatch({
-      type: "SET_API_KEY",
-      payload: key,
-    });
-    dispatch({
-      type: "SET_USER_NAME",
-      payload: userName,
-    });
-  }, [key]);
-
   const searchTermCall = async (searchValue: string, page: number) => {
     const data = await fetchDataSearch({
       searchValue,
@@ -50,7 +38,7 @@ export default function Home() {
   const _getCollection = async (
     collection: number,
     page: number,
-    searchTerm?: string
+    searchTerm?: string,
   ) => {
     if (searchTerm) {
       await searchTermCall(searchTerm, page);
@@ -117,7 +105,7 @@ export default function Home() {
         dispatch={dispatch}
       />
 
-      <Grid templateColumns={"200px 1fr"} gap={2}>
+      <div className={"grid grid-cols-[200px_1fr] gap-2 bg-blue-800"}>
         <GridItem
           w="100%"
           height="100vh"
@@ -142,7 +130,7 @@ export default function Home() {
             />
           </VStack>
         </GridItem>
-      </Grid>
+      </div>
     </Box>
   );
 }

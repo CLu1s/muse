@@ -74,7 +74,7 @@ const GalleryItem = ({
                   e.preventDefault();
                   isClient &&
                     invoke("open_url", { url: image.short_url }).catch(
-                      console.error
+                      console.error,
                     );
                 }}
                 size="sm"

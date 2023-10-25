@@ -7,7 +7,7 @@ const fetchSettings = async (key: string | null) => {
       {
         method: "GET",
         timeout: 30,
-      }
+      },
     )) as any;
     const { data } = response;
     return data;

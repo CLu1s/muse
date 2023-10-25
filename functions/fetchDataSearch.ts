@@ -21,7 +21,7 @@ const fetchDataSearch = async ({
 }: SearchTermCall) => {
   try {
     const params = `page=${page}&purity=${convertPurity(
-      purity
+      purity,
     )}&categories=${convertCategories(categories)}&${addRatios(ratios)}`;
     const url = `https://wallhaven.cc/api/v1/search?q=${searchValue}&apikey=tLGG8XHnMqkxhW64JzK4NMJOCIt2BWb3&${params}`;
     const response = (await fetch(url, {

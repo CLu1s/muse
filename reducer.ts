@@ -1,4 +1,5 @@
 import { State } from "./types";
+import { getCredentials } from "@/functions";
 
 const convertPurity = (purity: string[]) => {
   const sfw = purity.includes("sfw") ? "1" : "0";
@@ -41,8 +42,8 @@ export const init: State = {
   isSlideActive: false,
   intervalID: null,
   settings: null,
-  apiKey: "",
-  userName: "",
+  apiKey: getCredentials().savedKey,
+  userName: getCredentials().userName,
 };
 export const reducer = (state: State, action: any) => {
   switch (action.type) {
@@ -73,7 +74,7 @@ export const reducer = (state: State, action: any) => {
       };
     case "SET_CURRENT_WALLPAPER":
       const index = state.images.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.id,
       );
 
       return {
@@ -195,7 +196,7 @@ export const reducer = (state: State, action: any) => {
         currentCollection: collection,
       } = state;
       const params = `page=${page}&purity=${convertPurity(
-        purity
+        purity,
       )}&categories=${convertCategories(categories)}&${addRatios(ratios)}`;
 
       console.log("_getCollection", collection, page);
